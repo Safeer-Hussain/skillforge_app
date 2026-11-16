@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 
 import '../../../core/theme/theme_cubit.dart';
 import '../../settings/widgets/recruiter_debug_drawer.dart';
+import '../../complexity/views/complexity_visualizer_view.dart';
 import '../../../injection.dart';
 import '../../../data/datasources/preferences_service.dart';
 import '../../../core/utils/app_feedback.dart';
@@ -34,6 +35,21 @@ class MasteryAnalyticsView extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            tooltip: 'Big-O Complexity Visualizer',
+            icon: Icon(
+              Icons.show_chart,
+              size: isLandscape ? 18 : 20,
+              color: cs.primary,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => const ComplexityVisualizerView(),
+                ),
+              );
+            },
+          ),
           IconButton(
             tooltip: 'Toggle Obsidian Dark / Crisp Light Mode',
             icon: Icon(
@@ -112,6 +128,67 @@ class MasteryAnalyticsView extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(height: 14),
+
+            // Big-O Complexity Interactive Visualizer Banner
+            InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const ComplexityVisualizerView(),
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: cs.surfaceContainer,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: cs.primary.withValues(alpha: 0.5)),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: cs.primaryContainer,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Icon(
+                        Icons.show_chart,
+                        size: 20,
+                        color: cs.onPrimaryContainer,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Big-O Complexity Visualizer',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: cs.onSurface,
+                            ),
+                          ),
+                          Text(
+                            'Simulate O(1), O(log n), O(n), O(n log n), and O(2^n) curves against input size N',
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: cs.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios, size: 14, color: cs.primary),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 16),
 

@@ -6,7 +6,7 @@ This backlog defines 25 granular, production-ready daily engineering sprints for
 
 ## 25 Granular Daily Sprints
 
-- [ ] **Sprint 1: Big-O Time & Space Complexity Interactive Visualizer**
+- [x] **Sprint 1: Big-O Time & Space Complexity Interactive Visualizer**
   - Interactive canvas rendering execution curves for O(1), O(log n), O(n), O(n log n), and O(2^n) dynamically plotted against data set size N.
 - [ ] **Sprint 2: GitHub Contribution Streak & Study Heatmap Grid**
   - 52-week activity contribution matrix displaying daily completed lessons, sandbox executions, and SM-2 flashcard reviews with 4 levels of emerald intensity.
