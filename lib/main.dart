@@ -12,6 +12,7 @@ import 'presentation/flashcards/cubit/flashcard_sm2_cubit.dart';
 import 'presentation/cohort/cubit/cohort_cubit.dart';
 import 'presentation/ai_mentor/cubit/ai_socratic_mentor_cubit.dart';
 import 'presentation/complexity/cubit/complexity_cubit.dart';
+import 'presentation/heatmap/cubit/study_heatmap_cubit.dart';
 import 'presentation/splash/splash_view.dart';
 
 void main() {
@@ -61,6 +62,9 @@ class SkillForgeApp extends StatelessWidget {
           create: (_) => AiSocraticMentorCubit(repository: sl()),
         ),
         BlocProvider<ComplexityCubit>(create: (_) => ComplexityCubit()),
+        BlocProvider<StudyHeatmapCubit>(
+          create: (_) => StudyHeatmapCubit(repository: sl()),
+        ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {

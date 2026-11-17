@@ -10,6 +10,7 @@ import 'data/repositories/sandbox_repository.dart';
 import 'data/repositories/flashcard_repository.dart';
 import 'data/repositories/cohort_repository.dart';
 import 'data/repositories/mentor_repository.dart';
+import 'data/repositories/study_activity_repository.dart';
 
 final sl = GetIt.instance;
 
@@ -57,5 +58,9 @@ Future<void> initInjection() async {
 
   sl.registerLazySingleton<MentorRepository>(
     () => MentorRepository(database: sl(), preferencesService: sl()),
+  );
+
+  sl.registerLazySingleton<StudyActivityRepository>(
+    () => StudyActivityRepository(database: sl(), preferencesService: sl()),
   );
 }

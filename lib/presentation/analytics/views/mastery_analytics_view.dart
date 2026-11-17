@@ -5,6 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import '../../../core/theme/theme_cubit.dart';
 import '../../settings/widgets/recruiter_debug_drawer.dart';
 import '../../complexity/views/complexity_visualizer_view.dart';
+import '../../heatmap/views/study_heatmap_view.dart';
 import '../../../injection.dart';
 import '../../../data/datasources/preferences_service.dart';
 import '../../../core/utils/app_feedback.dart';
@@ -35,6 +36,19 @@ class MasteryAnalyticsView extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            tooltip: 'Study Activity Heatmap',
+            icon: Icon(
+              Icons.calendar_month_outlined,
+              size: isLandscape ? 18 : 20,
+              color: cs.primary,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const StudyHeatmapView()),
+              );
+            },
+          ),
           IconButton(
             tooltip: 'Big-O Complexity Visualizer',
             icon: Icon(
@@ -177,6 +191,65 @@ class MasteryAnalyticsView extends StatelessWidget {
                           ),
                           Text(
                             'Simulate O(1), O(log n), O(n), O(n log n), and O(2^n) curves against input size N',
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: cs.onSurfaceVariant,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward_ios, size: 14, color: cs.primary),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+
+            // Study Activity Heatmap Grid Banner (Sprint 2)
+            InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const StudyHeatmapView()),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: cs.surfaceContainer,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: cs.primary.withValues(alpha: 0.5)),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: cs.primaryContainer,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Icon(
+                        Icons.calendar_month_outlined,
+                        size: 20,
+                        color: cs.onPrimaryContainer,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '52-Week Study Heatmap & Streak Grid',
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.bold,
+                              color: cs.onSurface,
+                            ),
+                          ),
+                          Text(
+                            'Interactive GitHub-style contribution matrix with 4 levels of emerald intensity',
                             style: TextStyle(
                               fontSize: 11,
                               color: cs.onSurfaceVariant,

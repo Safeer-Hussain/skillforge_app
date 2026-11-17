@@ -154,6 +154,16 @@ class AppDatabase {
         isCurrentUser INTEGER
       )
     ''');
+
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS study_activities (
+        date TEXT PRIMARY KEY,
+        completedLessons INTEGER,
+        sandboxExecutions INTEGER,
+        flashcardsReviewed INTEGER,
+        xpEarned INTEGER
+      )
+    ''');
   }
 
   Future<void> _seedInitialData(Database db) async {
