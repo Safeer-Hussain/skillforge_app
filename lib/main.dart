@@ -13,6 +13,7 @@ import 'presentation/cohort/cubit/cohort_cubit.dart';
 import 'presentation/ai_mentor/cubit/ai_socratic_mentor_cubit.dart';
 import 'presentation/complexity/cubit/complexity_cubit.dart';
 import 'presentation/heatmap/cubit/study_heatmap_cubit.dart';
+import 'presentation/validator/cubit/regex_json_cubit.dart';
 import 'presentation/splash/splash_view.dart';
 
 void main() {
@@ -64,6 +65,9 @@ class SkillForgeApp extends StatelessWidget {
         BlocProvider<ComplexityCubit>(create: (_) => ComplexityCubit()),
         BlocProvider<StudyHeatmapCubit>(
           create: (_) => StudyHeatmapCubit(repository: sl()),
+        ),
+        BlocProvider<RegexJsonCubit>(
+          create: (_) => RegexJsonCubit(repository: sl()),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(

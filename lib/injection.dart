@@ -11,6 +11,7 @@ import 'data/repositories/flashcard_repository.dart';
 import 'data/repositories/cohort_repository.dart';
 import 'data/repositories/mentor_repository.dart';
 import 'data/repositories/study_activity_repository.dart';
+import 'data/repositories/regex_json_repository.dart';
 
 final sl = GetIt.instance;
 
@@ -62,5 +63,9 @@ Future<void> initInjection() async {
 
   sl.registerLazySingleton<StudyActivityRepository>(
     () => StudyActivityRepository(database: sl(), preferencesService: sl()),
+  );
+
+  sl.registerLazySingleton<RegexJsonRepository>(
+    () => RegexJsonRepository(database: sl()),
   );
 }

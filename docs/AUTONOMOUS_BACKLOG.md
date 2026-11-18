@@ -10,7 +10,7 @@ This backlog defines 25 granular, production-ready daily engineering sprints for
   - Interactive canvas rendering execution curves for O(1), O(log n), O(n), O(n log n), and O(2^n) dynamically plotted against data set size N.
 - [x] **Sprint 2: GitHub Contribution Streak & Study Heatmap Grid**
   - 52-week activity contribution matrix displaying daily completed lessons, sandbox executions, and SM-2 flashcard reviews with 4 levels of emerald intensity.
-- [ ] **Sprint 3: Custom Regex & JSON Schema Live Tester**
+- [x] **Sprint 3: Custom Regex & JSON Schema Live Tester**
   - Integrated validator in Code Sandbox testing regex match captures and structured JSON Schema constrained decoding models.
 - [ ] **Sprint 4: System Design Capacity & QPS Back-of-the-Envelope Calculator**
   - Interactive sizing tool estimating write/read QPS, network ingress/egress bandwidth (GB/s), cache storage (80/20 rule), and server fleet node counts.

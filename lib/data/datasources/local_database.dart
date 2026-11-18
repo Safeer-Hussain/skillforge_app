@@ -164,6 +164,19 @@ class AppDatabase {
         xpEarned INTEGER
       )
     ''');
+
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS regex_json_templates (
+        id TEXT PRIMARY KEY,
+        title TEXT,
+        type TEXT,
+        pattern TEXT,
+        sampleInput TEXT,
+        optionsJson TEXT,
+        isPreset INTEGER,
+        createdAt TEXT
+      )
+    ''');
   }
 
   Future<void> _seedInitialData(Database db) async {

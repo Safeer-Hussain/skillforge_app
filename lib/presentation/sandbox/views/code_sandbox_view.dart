@@ -6,6 +6,7 @@ import '../bloc/sandbox_event.dart';
 import '../bloc/sandbox_state.dart';
 import '../../../data/models/challenge_model.dart';
 import '../../../core/utils/app_feedback.dart';
+import '../../validator/views/regex_json_validator_view.dart';
 
 class CodeSandboxView extends StatefulWidget {
   final String? initialChallengeId;
@@ -130,6 +131,21 @@ class _CodeSandboxViewState extends State<CodeSandboxView>
                     ],
                   ),
                 ),
+              IconButton(
+                tooltip: 'Regex & JSON Schema Studio',
+                icon: Icon(
+                  Icons.data_object_outlined,
+                  size: isLandscape ? 18 : 20,
+                  color: cs.primary,
+                ),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const RegexJsonValidatorView(),
+                    ),
+                  );
+                },
+              ),
               IconButton(
                 tooltip: 'Reset to Template',
                 icon: Icon(
