@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
 
 jobs:
   build_release_apk:
@@ -40,7 +41,7 @@ jobs:
           flutter test --no-pub
 
       - name: Build Release APK
-        run: flutter build apk --release
+        run: flutter build apk --release --pub --android-skip-build-dependency-validation
 
       - name: Create GitHub Release and Attach APK
         uses: softprops/action-gh-release@v2
